@@ -2,35 +2,225 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Misha Bashkirov / bashmish</title>
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <title>Misha Bashkirov @bashmish</title>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <style type="text/css">
+    .center {
+      text-align: center;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    a       { transition: color 0.3s ease; }
+    a:hover { transition: color 0.2s ease; }
+
+    a:hover .fa-stack {
+      transition-duration: 0.3s;
+      transition-property: transform;
+      transform: scale(1.1,1.1);
+    }
+
+    .separator {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    .main a {
+      display: inline-block;
+      color: #333333;
+    }
+
+    .avatar img {
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    .avatar img {
+      -webkit-filter: grayscale(100%);
+         -moz-filter: grayscale(100%);
+              filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+      -webkit-transition: -webkit-filter 0.1s ease;
+         -moz-transition:    -moz-filter 0.1s ease;
+    }
+
+    .avatar:hover img {
+      -webkit-filter: grayscale(0%);
+         -moz-filter: grayscale(0%);
+              filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
+      -webkit-transition: -webkit-filter 0.5s ease;
+         -moz-transition:    -moz-filter 0.5s ease;
+    }
+
+    h2.links-header {
+      margin-top: 0;
+      color: #777777;
+      text-transform: uppercase;
+      font-weight: normal;
+      font-size: 12px;
+    }
+
+    .fa-moi-krug {
+      position: relative;
+      top: 1px;
+      left: -10px;
+      width: 16px;
+      height: 16px;
+      background-image: url("/moi-krug.svg");
+    }
+
+    .fa-moscowjs {
+      position: relative;
+      top: 2px;
+      left: -7px;
+      width: 22px;
+      height: 22px;
+      background-image: url("/moscowjs.svg");
+    }
+
+    .link-radiojs:hover       { color: #666666; }
+    .link-moscowjs:hover      { color: #f3df49; }
+    .link-github:hover        { color: #000000; }
+    .link-stackoverflow:hover { color: #fe7c16; }
+    .link-linkedin:hover      { color: #1c87bd; }
+    .link-moi-krug:hover      { color: #c62127; }
+    .link-skype:hover         { color: #009ee5; }
+    .link-gmail:hover         { color: #d74937; }
+    .link-twitter:hover       { color: #55acee; }
+    .link-instagram:hover     { color: #5382a6; }
+    .link-facebook:hover      { color: #3d5b99; }
+    .link-vk:hover            { color: #597da3; }
+    .link-google-plus:hover   { color: #d73d32; }
+  </style>
 </head>
 <body>
   <div class="container">
-    <div class="page-header">
-      <h1><a href="http://bashmish.com">Misha Bashkirov</a> <small>bashmish</small></h1>
+    <h1 class="row">
+      <div class="col-lg-2 col-md-1 col-xs-0"></div>
+      <div class="col-lg-4 col-md-4 col-xs-12 center"><a href="http://bashmish.com">Misha Bashkirov</a></div>
+      <div class="col-lg-4 col-md-6 col-xs-12 center"><small><a href="http://twitter.com/bashmish">@bashmish</a></small></div>
+      <div class="col-lg-2 col-md-1 col-xs-0"></div>
+    </h1>
+    <div class="row">
+      <div class="col-lg-2 col-md-1 col-xs-0"></div>
+      <div class="col-lg-8 col-md-10 col-xs-12"><div class="separator"></div></div>
+      <div class="col-lg-2 col-md-1 col-xs-0"></div>
     </div>
-    <div class="pull-left">
-      <img class="img-circle" src="http://cs425516.vk.me/v425516932/1acc/owS7jWS3YZI.jpg" alt="Misha Bashkirov" style="width: 200px; height: 200px;">
-    </div>
-    <div class="pull-left">
-      <h4>Web Developer</h4>
-      <ul>
-        <li><a href="http://radiojs.ru">RadioJS</a></li>
-        <li><a href="http://moscowjs.ru">MoscowJS</a></li>
-        <li><a href="http://github.com/bashmish">GitHub</a></li>
-        <li><a href="http://careers.stackoverflow.com/bashmish">StackOverflow</a></li>
-        <li><a href="http://linkedin.com/in/bashmish">LinkedIn</a></li>
-        <li><a href="http://bashmish.moikrug.ru">Мой Круг</a></li>
-        <li><a href="http://twitter.com/bashmish">Twitter</a></li>
-        <li><a href="http://instagram.com/bashmish">Instagram</a></li>
-        <li><a href="http://facebook.com/bashmish">Facebook</a></li>
-        <li><a href="http://vk.com/bashmish">VK</a></li>
-        <li><a href="http://google.com/+bashmish">Google+</a></li>
-        <li><a href="mailto:bashmish@gmail.com">Email</a></li>
-        <li><a href="skype:bashmish">Skype</a></li>
-      </ul>
-    </div>
+    <section class="main row">
+      <div class="col-lg-2 col-md-1 col-xs-0"></div>
+      <section class="avatar col-lg-4 col-md-4 col-xs-12">
+        <img class="img-circle" src="avatar.jpg" alt="Misha Bashkirov">
+      </section>
+      <div class="col-lg-2 col-md-3 col-xs-6" style="text-align: right;">
+        <h2 class="links-header">Community</h2>
+        <ul class="list-unstyled">
+          <li><a href="http://radiojs.ru" class="link-radiojs">
+            RadioJS Podcast
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-stack-2x fa-circle"></i>
+              <i class="fa fa-stack-1x fa-inverse fa-microphone"></i>
+            </span>
+          </a></li>
+          <li><a href="http://moscowjs.ru" class="link-moscowjs">
+            MoscowJS Meetup
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-stack-2x fa-circle"></i>
+              <i class="fa fa-stack-1x fa-inverse fa-moscowjs"></i>
+            </span>
+          </a></li>
+        </ul>
+        <h2 class="links-header">Developer</h2>
+        <ul class="list-unstyled">
+          <li><a href="http://github.com/bashmish" class="link-github">
+            GitHub
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-stack-2x fa-circle"></i>
+              <i class="fa fa-stack-1x fa-inverse fa-github"></i>
+            </span>
+          </a></li>
+          <li><a href="http://careers.stackoverflow.com/bashmish" class="link-stackoverflow">
+            StackOverflow
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-stack-2x fa-circle"></i>
+              <i class="fa fa-stack-1x fa-inverse fa-stack-overflow"></i>
+            </span>
+          </a></li>
+          <li><a href="http://linkedin.com/in/bashmish" class="link-linkedin">
+            LinkedIn
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-stack-2x fa-circle"></i>
+              <i class="fa fa-stack-1x fa-inverse fa-linkedin"></i>
+            </span>
+          </a></li>
+          <li><a href="http://bashmish.moikrug.ru" class="link-moi-krug">
+            Мой Круг
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-stack-2x fa-circle"></i>
+              <i class="fa fa-stack-1x fa-inverse fa-moi-krug"></i>
+            </span>
+          </a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-3 col-xs-6">
+        <h2 class="links-header">Contacts</h2>
+        <ul class="list-unstyled">
+          <li><a href="skype:bashmish" class="link-skype">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-stack-2x fa-circle"></i>
+              <i class="fa fa-stack-1x fa-inverse fa-skype"></i>
+            </span>
+            Skype
+          </a></li>
+          <li><a href="mailto:bashmish@gmail.com" class="link-gmail">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-stack-2x fa-circle"></i>
+              <i class="fa fa-stack-1x fa-inverse fa-at"></i>
+            </span>
+            Email
+          </a></li>
+        </ul>
+        <h2 class="links-header">Social</h2>
+        <ul class="list-unstyled">
+          <li><a href="http://twitter.com/bashmish" class="link-twitter">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-stack-2x fa-circle"></i>
+              <i class="fa fa-stack-1x fa-inverse fa-twitter"></i>
+            </span>
+            Twitter
+          </a></li>
+          <li><a href="http://instagram.com/bashmish" class="link-instagram">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-stack-2x fa-circle"></i>
+              <i class="fa fa-stack-1x fa-inverse fa-instagram"></i>
+            </span>
+            Instagram
+          </a></li>
+          <li><a href="http://facebook.com/bashmish" class="link-facebook">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-stack-2x fa-circle"></i>
+              <i class="fa fa-stack-1x fa-inverse fa-facebook"></i>
+            </span>
+            Facebook
+          </a></li>
+          <li><a href="http://vk.com/bashmish" class="link-vk">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-stack-2x fa-circle"></i>
+              <i class="fa fa-stack-1x fa-inverse fa-vk"></i>
+            </span>
+            VK
+          </a></li>
+          <li><a href="http://google.com/+bashmish" class="link-google-plus">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-stack-2x fa-circle"></i>
+              <i class="fa fa-stack-1x fa-inverse fa-google-plus"></i>
+            </span>
+            Google+
+          </a></li>
+        </ul>
+      </div>
+    </section>
   </div>
 </body>
 </html>
