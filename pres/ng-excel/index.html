@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <title>Пишем "Excel" на AngularJS: 2000 watchers не предел / bashmish.com</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1274, user-scalable=no">
+  <link rel="stylesheet" href="./shower-ribbon.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="list">
+
+<header class="caption">
+  <h1>Пишем "Excel" на AngularJS: 2000 watchers не предел</h1>
+  <p><a href="http://bashmish.com/">Миша Башкиров</a>, <a href="http://www.at-consulting.ru/">AT Consulting</a></p>
+</header>
+
+<section class="slide cover" id="title">
+  <div>
+    <header>
+      <h2>Пишем "Excel" на AngularJS:<br>2000 watchers не предел</h2>
+      <h3><i>Миша Башкиров, AT Consulting</i></h3>
+    </header>
+    <img src="images/turtle-cook/0.jpg" alt="" width="100%">
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <figure>
+      <blockquote>
+        <p><a href="http://javascriptjabber.com/032-jsj-angular-js/">...</a> my measurement is always something about <mark>2,000</mark> bindings per page. So, if you imagine a complicated page, let’s say it has 100 rows and 20 columns, then a table would have about <mark>2,000</mark> items on it. That’s pretty much the limit of what you can show to the user before the user kind of scream and say, “Hey! This page is ridiculous! You don’t give me back information or do something to make the page more presentable.”</p>
+      </blockquote>
+      <figcaption><a href="http://misko.hevery.com/">Miško Hevery</a>, команда AngularJS</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h2>Поздним зимним вечером<br>в одном Enterprise-приложении</h2>
+    <pre>
+      <code>
+        &gt; <a href="http://stackoverflow.com/questions/18499909/how-to-count-total-number-of-watches-on-a-page">countWatchers()</a>
+        23659
+      </code>
+    </pre>
+  </div>
+</section>
+
+<section class="slide shout">
+  <div>
+    <h2><mark class="important">23 659</mark> watchers!</h2>
+  </div>
+</section>
+
+<section class="slide shout">
+  <div>
+    <h2>Как докатились<br>до жизни такой?</h2>
+  </div>
+</section>
+
+<section class="slide cover">
+  <div>
+    <img src="images/house-of-cards/1.jpg" alt="" width="100%">
+  </div>
+</section>
+
+<section class="slide cover">
+  <div>
+    <img src="images/house-of-cards/2.jpg" alt="" width="100%">
+  </div>
+</section>
+
+<section class="slide cover">
+  <div>
+    <img src="images/house-of-cards/3.png" alt="" width="100%">
+  </div>
+</section>
+
+<section class="slide cover">
+  <div>
+    <img src="images/house-of-cards/4.jpg" alt="" width="100%">
+  </div>
+</section>
+
+<section class="slide shout">
+  <div>
+    <h2>Красиво!<br>Но...</h2>
+  </div>
+</section>
+
+<section class="slide cover">
+  <div>
+    <img src="images/turtle.jpg" alt="" width="100%">
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h2>У нас проблемы:</h2>
+    <ul>
+      <li class="next">нажатие клавишы в input-е занимает от секунды до нескольких</li>
+      <li class="next">так ли хорош dirty checking? <small>и тот ли framework мы выбрали O_o?</small></li>
+      <li class="next">ng-repeat на ng-repeat'е, ng-repeat'ом погоняет</li>
+      <li class="next">медленно работают сумматоры и прочие формулы</li>
+      <li class="next">перегружен UI</li>
+      <li class="next">...</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide cover">
+  <div>
+    <img src="images/house-of-cards/5.jpg" alt="" width="100%">
+  </div>
+</section>
+
+<section class="slide shout">
+  <div>
+    <h2>Учимся готовить<br>"черепаху"</h2>
+  </div>
+</section>
+
+<section class="slide cover">
+  <div>
+    <img src="images/turtle-cook/1.jpg" alt="" width="100%">
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h2>Поверхностный поиск</h2>
+    <ul>
+      <li class="next"><a href="http://javascriptjabber.com/032-jsj-angular-js/">&lt; 2000 биндингов</a></li>
+      <li class="next"><a href="http://stackoverflow.com/questions/14957614/angular-js-clear-watch">дерегистрируем $watch</a></li>
+      <li class="next">
+        одноразовые биндинги
+        <ul>
+          <li><a href="http://github.com/Pasvaz/bindonce">bindonce</a></li>
+          <li><a href="http://github.com/tadeuszwojcik/angular-once">angular-once</a></li>
+        </ul>
+      </li>
+    </ul>
+    <p class="note next">Уже кое-что...</p>
+  </div>
+</section>
+
+<section class="slide cover">
+  <div>
+    <img src="images/turtle-cook/2.jpg" alt="" width="100%">
+  </div>
+</section>
+
+<section class="slide shout">
+  <div>
+    <h2>Быстрые итераторы<br><small><small>powered by Vanilla JS ;)</small></small></h2>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <figure>
+      <img src="images/jsperf-summators.png" alt="" width="80%">
+      <figcaption><a href="http://jsperf.com/summators">jsperf.com/summators</a><small class="next"> + <a href="http://jsperf.com/jquery-each-vs-for-loop/12">масса</a> <a href="http://jsperf.com/array-loop-vs-filter/3">других</a> <a href="http://jsperf.com/map-vs-for-loop-performance/6">замеров</a></small></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="slide cover">
+  <div>
+    <img src="images/turtle-cook/3.jpg" alt="" width="100%">
+  </div>
+</section>
+
+<section class="slide shout">
+  <div>
+    <h2>ng-if<br>vs<br>ng-show</h2>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h2>ng-if "изолирует" биндинги</h2>
+    <pre>
+      <code>&lt;div <mark>ng-if</mark>="true"&gt;</code>
+      <code>  &lt;input ng-model="model.attribute1"&gt;</code>
+      <code>&lt;/div&gt;</code>
+      <code>&lt;div <mark>ng-if</mark>="false"&gt;</code>
+      <code>  &lt;input ng-model="model.attribute2"&gt;</code>
+      <code>&lt;/div&gt;</code>
+    </pre>
+    <p class="note next">countWatchers() => <mark>&nbsp;3&nbsp;</mark>... и каждый раз рендерится с нуля</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h2>ng-show нет</h2>
+    <pre>
+      <code>&lt;div <mark class="important">ng-show</mark>="true"&gt;</code>
+      <code>  &lt;input ng-model="model.attribute1"&gt;</code>
+      <code>&lt;/div&gt;</code>
+      <code>&lt;div <mark class="important">ng-show</mark>="false"&gt;</code>
+      <code>  &lt;input ng-model="model.attribute2"&gt;</code>
+      <code>&lt;/div&gt;</code>
+    </pre>
+    <p class="note next">countWatchers() => <mark class="important">&nbsp;4&nbsp;</mark>... зато быстрее рендерится</p>
+  </div>
+</section>
+
+<section class="slide cover">
+  <div>
+    <img src="images/turtle-cook/4.jpg" alt="" width="100%">
+  </div>
+</section>
+
+<section class="slide shout">
+  <div>
+    <h2>Нужны ли<br>мгновенные<br>обновления?</h2>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h2>"Monkey patch" input + ng-model</h2>
+    <pre>
+      <code>appModule.directive '<mark>input</mark>', -></code>
+      <code>  restrict: 'E'</code>
+      <code>  priority: 1</code>
+      <code>  link: ($scope, $element, $attrs) -></code>
+      <code>    $element.<mark>off</mark> 'compositionstart compositionend
+                   input change'</code>
+    </pre>
+    <p class="note next">
+      Будет обновляться только при потере focus.
+      <br><small class="next">Осторожно! После обновления AngularJS надо перепроверять.</small>
+    </p>
+  </div>
+</section>
+
+<section class="slide cover">
+  <div>
+    <img src="images/turtle-cook/5.jpg" alt="" width="100%">
+  </div>
+</section>
+
+<section class="slide shout">
+  <div>
+    <h2>И как оно?</h2>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h2>Результаты:</h2>
+    <ul>
+      <li class="next">разгрузили UI</li>
+      <li class="next">медленные участки кода переписали на Vanilla JS <small>(прости, underscore.js)</small></li>
+      <li class="next">убрали лишние watchers</li>
+      <li class="next">изолировали watchers через ng-if</li>
+      <li class="next">даже если их много, обновление происходит только при потере focus</li>
+      <li class="next">где не помогает техника, ищем способ дополнительно разгрузить UI</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide cover">
+  <div>
+    <img src="images/turtle-cook/8.jpg" alt="" width="100%">
+  </div>
+</section>
+
+<section class="slide shout">
+  <div>
+    <h2>Будущее?</h2>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h2>Будущее!</h2>
+    <ul>
+      <li>
+        <a href="https://docs.angularjs.org/api/ng/directive/ngModelOptions">ngModelOptions</a> <mark>&nbsp;NEW!&nbsp;</mark>
+        <br>самый долгий в истории AngularJS <a href="http://github.com/angular/angular.js/commit/dbe381f29fc72490f8e3a5328d5c487b185fe652">merged pull request</a>
+      </li>
+      <li>
+        <a href="http://blog.angularjs.org/2014/03/angular-20.html">AngularJS 2.0</a>
+        <a href="http://addyosmani.com/blog/the-future-of-data-binding-is-object-observe/">Object.observe()</a>
+        <br>"... 20-40x increase in speed ..."
+      </li>
+      <li><a href="http://angulardart.org/">AngularDart</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide cover">
+  <div>
+    <img src="images/turtle-cook/9.jpg" alt="" width="100%">
+  </div>
+</section>
+
+<section class="slide shout">
+  <div>
+    <h2>Bonus!</h2>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h2>Экспорт HTML-таблиц в Excel</h2>
+    <pre>
+      <code><mark>&lt;table id="important-excel-report"&gt;</mark></code>
+      <code>  &lt;tr&gt;</code>
+      <code>    &lt;td&gt;Я откроюсь в Excel!&lt;/td&gt;</code>
+      <code>  &lt;/tr&gt;</code>
+      <code><mark>&lt;/table&gt;</mark></code>
+    </pre>
+    <p>+ <a href="https://github.com/eligrey/FileSaver.js/">FileSaver.js</a></p>
+  </div>
+</section>
+
+<section class="slide shout">
+  <div>
+    <h2>23 659 thanks!</h2>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <header>
+      <h2>Пишем "Excel" на AngularJS:<br>2000 watchers не предел</h2>
+    </header>
+    <p>Миша Башкиров, AT Consulting</p>
+    <ul>
+      <li><a href="http://bashmish.com">bashmish.com</a></li>
+      <li><a href="mailto:bashmish@gmail.com">bashmish@gmail.com</a></li>
+    </ul>
+    <p>Презентация: <a href="http://bashmish.com/pres/ng-excel/">bashmish.com/pres/ng-excel/</a></p>
+  </div>
+</section>
+
+<p class="badge"><a href="https://github.com/shower/shower">Powered by Shower</a></p>
+
+<div class="progress"><div></div></div>
+
+<script src="./shower.min.js"></script>
+</body>
+</html>

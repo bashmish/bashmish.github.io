@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <title>Мышление в стиле DCI / bashmish.com</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1274, user-scalable=no">
+  <link rel="stylesheet" href="./shower-ribbon.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="list">
+
+<header class="caption">
+  <h1>Мышление в стиле DCI</h1>
+  <p><a href="http://bashmish.com/">Миша Башкиров</a>, <a href="http://www.at-consulting.ru/">AT Consulting</a></p>
+</header>
+
+<section class="slide cover" id="title">
+  <div>
+    <header>
+      <h2>Мышление в стиле DCI</h2>
+      <h3><i>Миша Башкиров, AT Consulting</i></h3>
+    </header>
+    <img src="images/masi-oka-jedi.jpg" alt="" width="100%">
+  </div>
+</section>
+
+<section class="slide shout">
+  <div>
+    <h2>
+      Не хотите
+      <br>стать героем
+      <br>govnokod.ru?
+    </h2>
+  </div>
+</section>
+
+<section class="slide cover">
+  <div>
+    <img src="images/kick-ass.jpg" alt="" width="100%">
+  </div>
+</section>
+
+<section class="slide shout">
+  <div>
+    <h2>
+      Хотите быть
+      <br>героем
+      <br>другого сайта?
+    </h2>
+  </div>
+</section>
+
+<section class="slide cover">
+  <div>
+    <img src="images/steroidtocat.png" alt="" width="100%">
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h2>Подходы к проектированию</h2>
+    <ul>
+      <li class="next">ООП</li>
+      <li class="next">domain driven design</li>
+      <li class="next">test driven design</li>
+      <li class="next">behavior driven design</li>
+      <li class="next">complaint driven design ;)</li>
+      <li class="next">...</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h2>Паттерны</h2>
+    <ul>
+      <li class="next">MVC</li>
+      <li class="next">презентер</li>
+      <li class="next">фасад</li>
+      <li class="next">репозитарий</li>
+      <li class="next">сервисный класс</li>
+      <li class="next">...</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide cover">
+  <div>
+    <img src="images/hiro-vs-dinosaur.jpg" alt="" width="100%">
+  </div>
+</section>
+
+<section class="slide shout">
+  <div>
+    <h2>Мифы MVC</h2>
+  </div>
+</section>
+
+<section class="slide shout mvc-myths">
+  <div>
+    <h2>
+      <span class="fat">толстые модели</span>
+      <br><span class="thin">тонкие контроллеры</span>
+    </h2>
+    <img class="cross next" src="images/cross.png" alt="" height="100%">
+  </div>
+</section>
+
+<section class="slide shout mvc-myths">
+  <div>
+    <h2>
+      <span class="thin">тонкие модели</span>
+      <br><span class="fat">толстые контроллеры</span>
+    </h2>
+    <img class="cross next" src="images/cross.png" alt="" height="100%">
+  </div>
+</section>
+
+<section class="slide shout">
+  <div>
+    <h2>?</h2>
+  </div>
+</section>
+
+<section class="slide cover shout" id="bang-dci">
+  <div>
+    <h2>DCI</h2>
+    <img src="images/bang.jpg" alt="" height="100%">
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h2>Что такое DCI?</h2>
+    <ul>
+      <li>Data - Что? (модели)</li>
+      <li>Context - Где? (use-кесы)</li>
+      <li>Interaction - Как? (специфика, роли)</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h3><strong>Типичный пример DCI</strong></h3>
+    <pre>
+      <code>class <mark>MoneyTransfer</mark> <mark class="comment"># Context</mark></code>
+      <code>  def initialize(<mark>source</mark>, <mark>destination</mark>) <mark class="comment"># Data</mark></code>
+      <code>    <mark>@source</mark> = SourceAccount.new(source)</code>
+      <code>    <mark>@destination</mark> = DestinationAccount.new(destination)</code>
+      <code>  end</code>
+      <code>  def transfer(amount)</code>
+      <code>    <mark class="comment"># Interaction (используем роли)</mark></code>
+      <code>  end</code>
+      <code>end</code>
+    </pre>
+  </div>
+</section>
+
+<section class="slide cover">
+  <div>
+    <img src="images/masi-oka-confident.jpg" alt="" width="100%">
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h3><strong>MVC - частный случай DCI</strong></h3>
+    <pre>
+      <code>class ProjectsController</code>
+      <code>  <mark class="comment"># Context (controller)</mark></code>
+      <code>  <mark>def show</mark></code>
+      <code>    <mark class="comment"># Data (model)</mark></code>
+      <code>    <mark>project</mark> = Project.find(params[:id])</code>
+      <code>    <mark class="comment"># Interaction Role (view)</mark></code>
+      <code>    <mark>@presentable_project</mark> = ProjectPresenter.new(project)</code>
+      <code>  end</code>
+      <code>end</code>
+    </pre>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h3><strong>Репозитарий (валидация, сохранение...)</strong></h3>
+    <pre>
+      <code><mark class="comment"># Context</mark></code>
+      <code>class <mark>ProjectRepository</mark></code>
+      <code>  def initialize(<mark>project</mark>) <mark class="comment"># Data</mark></code>
+      <code>    @project = project</code>
+      <code>    @project.extend <mark>ProjectValidator, ProjectPersister</code>
+      <code>  end</code>
+      <code>  def save <mark class="comment"># Interaction (используем роли)</mark></code>
+      <code>  end</code>
+      <code>end</code>
+    </pre>
+  </div>
+</section>
+
+<section class="slide cover" id="masi-oka-yeah">
+  <div>
+    <img src="images/masi-oka-yeah.jpg" alt="" width="100%">
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <header>
+      <h2>Мышление в стиле DCI</h2>
+    </header>
+    <p>Миша Башкиров, AT Consulting</p>
+    <ul>
+      <li><a href="http://bashmish.com">bashmish.com</a></li>
+      <li><a href="mailto:bashmish@gmail.com">bashmish@gmail.com</a></li>
+    </ul>
+    <p>Презентация: <a href="http://bashmish.com/pres/dci-mind/">bashmish.com/pres/dci-mind/</a></p>
+  </div>
+</section>
+
+<p class="badge"><a href="https://github.com/shower/shower">Powered by Shower</a></p>
+
+<div class="progress"><div></div></div>
+
+<script src="./shower.min.js"></script>
+</body>
+</html>

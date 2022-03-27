@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <title>Как не проSPAть миграцию на клиенте? / bashmish.com</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=792, user-scalable=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="stylesheet" href="./styles/shower-ribbon.css">
+  <style>
+    mark.letter {
+      padding: 0;
+    }
+  </style>
+</head>
+<body class="list">
+
+<header class="caption">
+  <h1>Как не проSPAть миграцию на клиенте?</h1>
+  <p><a href="http://bashmish.com/">Миша Башкиров</a>, <a href="http://www.at-consulting.ru/">AT Consulting</a></p>
+</header>
+
+<section class="slide cover">
+  <div>
+    <header style="background-color: rgba(255, 150, 0, 0.8); padding: 10px; position: absolute; width: 100%; top: 78%; left: 0;">
+      <h2 style="color: white; margin: 0 0 15px;">Как не проSPAть миграцию на клиенте?</h2>
+      <h3 style="color: white; line-height: 1em;"><i>Миша Башкиров, AT Consulting</i></h3>
+    </header>
+    <img src="./pictures/woman-sleeping-in-spa.jpg" alt="" width="100%">
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h2>О чем доклад?</h2>
+    <ol>
+      <li>Что я понимаю под миграцией</li>
+      <li>Есть ли в SPA место миграциям?</li>
+      <li>Проблемы и их решения</li>
+    </ol>
+  </div>
+</section>
+
+<section class="slide shout">
+  <div>
+    <h2 style="font-size: 60px;">
+      Часть 1. Что я понимаю под миграцией
+    </h2>
+  </div>
+</section>
+
+<section class="slide cover">
+  <div>
+    <img src="./pictures/israel.jpg" alt="" width="100%">
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <blockquote>
+      <p>Миграция - это процесс изменения схемы данных или непосредственно данных в рамках одного хранилища, либо перенос данных из одного хранилища в другое.</p>
+    </blockquote>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h3><strong>Пример 1.</strong> Справочник товаров: до</h3>
+    <table>
+      <tr>
+        <th width="30%">id</th>
+        <th>name</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Диван</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Кресло</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Стол</td>
+      </tr>
+      <tr>
+        <td>...</td>
+        <td>...</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h3><strong>Пример 1.</strong> Справочник товаров: после</h3>
+    <table>
+      <tr>
+        <th width="30%">id</th>
+        <th>name</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><mark class="letter">д</mark>иван</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><mark class="letter">к</mark>ресло</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><mark class="letter">с</mark>тол</td>
+      </tr>
+      <tr>
+        <td>...</td>
+        <td>...</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h3><strong>Пример 2.</strong> JSON-объект: до</h3>
+    <pre>
+      <code>{</code>
+      <code>  "site": "bashmish.com",</code>
+      <code>  "email": "bashmish@gmail.com",</code>
+      <code>  "name": "Миша Башкиров"</code>
+      <code>}</code>
+    </pre>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h3><strong>Пример 2.</strong> JSON-объект: после</h3>
+    <pre>
+      <code>{</code>
+      <code>  "site": "bashmish.com",</code>
+      <code>  "email": "bashmish@gmail.com",</code>
+      <code>  <mark>"firstName": "Миша",</mark></code>
+      <code>  <mark>"lastName": "Башкиров"</mark></code>
+      <code>}</code>
+    </pre>
+  </div>
+</section>
+
+<section class="slide shout">
+  <div>
+    <h2 style="font-size: 60px;">
+      Часть 2. Есть ли в SPA место миграциям?
+    </h2>
+  </div>
+</section>
+
+<section class="slide cover">
+  <div>
+    <img src="./pictures/green-card.jpg" alt="" width="100%">
+    <h2 style="color: white;">Серверная<br>миграция</h2>
+    <h3 style="color: white;">Очевидно...</h3>
+  </div>
+</section>
+
+<section class="slide cover">
+  <div>
+    <img src="./pictures/russian-passport.jpg" alt="" width="100%" style="margin-top: -7%;">
+    <h2 style="color: black;">Клиентская<br>миграция</h2>
+    <h3>Зачем?</h3>
+  </div>
+</section>
+
+<section class="slide shout">
+  <div>
+    <h2>
+      Зачем?
+    </h2>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h2>Несколько примеров:</h2>
+    <ul>
+      <li class="next">cookies;</li>
+      <li class="next">и другие: localStorage, IndexedDB...;</li>
+      <li class="next">client first / оффлайн / без бекенда;</li>
+      <li class="next">zero-downtime деплой.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h2>Клиентские миграции нужны, когда:</h2>
+    <ul>
+      <li class="next">много постоянных данных в cookies, localStorage...;</li>
+      <li class="next">недопустим сброс этих данных в дефолтные значения;</li>
+      <li class="next">бекенда нет вообще, полностью оффлайн подход;</li>
+      <li class="next">основной источник данных - это браузерные хранилища;</li>
+      <li class="next">нужно накатывать новую версию на работающем SPA-приложении.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide shout">
+  <div>
+    <h2 style="font-size: 60px;">
+      Часть 3. Проблемы и их решения
+    </h2>
+  </div>
+</section>
+
+<section class="slide cover">
+  <div>
+    <img src="./pictures/countries.jpg" alt="" width="100%" style="margin-top: -20%;">
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h2>Инструменты для серверных миграций:</h2>
+    <ul>
+      <li class="next">индийские разнорабочие (читай GUI-инструменты);</li>
+      <li class="next">SQL-файлы;</li>
+      <li class="next">ETL-трансформации;</li>
+      <li class="next">специализированные инструменты;
+        <ul>
+          <li>ActiveRecord Migrations</li>
+          <li>Django South</li>
+          <li>Doctrine Migrations</li>
+          <li>...</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide shout">
+  <div>
+    <h2>
+      Причем<br>тут<br>SPA?
+    </h2>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h2>Идеи можно и нужно переиспользовать:</h2>
+    <ul>
+      <li class="next">автоматизация;</li>
+      <li class="next">каждая миграция в отдельном файле (модуле);</li>
+      <li class="next">версионирование миграций;</li>
+      <li class="next">синтаксис (DSL) миграций;</li>
+      <li class="next">транзакционность и обработка ошибок.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h2>Но есть специфические проблемы:</h2>
+    <ol>
+      <li class="next">Клиентские данные могут быть изменены без вашего ведома.</li>
+      <li class="next">Старые инструменты заточены под SQL.</li>
+      <li class="next">Сервер не может в любой момент обратиться к клиенту.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h3 style="font-size: 23px;"><strong>Проблема 1.</strong> Клиентские данные могут быть изменены без вашего ведома</h3>
+    <ul>
+      <li class="next">Web Cryptography API:
+        <ol>
+          <li class="next">проверяем данные на целостность => hash;
+            <br><code>{ myData: ..., myDataHash... }</code>
+          </li>
+          <li class="next">проверяем данные на целенаправленный взлом => HMAC;
+            <br><code>{ myData: ..., myDataMac: ... }</code>
+          </li>
+          <li class="next">шифруем данные пользовательским паролем => AES-GCM.
+            <br><code>{ myDataEncrypted: ..., nonce: ... }</code>
+          </li>
+        </ol>
+      </li>
+    </ul>
+    <p class="next"><a href="https://timtaubert.de/talks/keeping-secrets-with-javascript/">Keeping secrets with JavaScript - An Introduction to the WebCrypto API</a></p>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h3 style="font-size: 23px;"><strong>Проблема 2.</strong> Старые инструменты заточены под SQL</h3>
+    <ul>
+      <li class="next">зависит от формата данных на клиенте:
+        <ul>
+          <li>JSON => ничего особо не нужно;</li>
+          <li>XML => можно XSLT, пацаны сомневаются :);</li>
+          <li>что там еще может быть?</li>
+        </ul>
+      </li>
+      <li class="next">зависит от типа хранилища:
+        <ul>
+          <li>cookies;</li>
+          <li>localStorage;</li>
+          <li>...</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h3 style="font-size: 23px;"><strong>Проблема 3.</strong> Сервер не может в любой момент обратиться к клиенту</h3>
+    <h4 class="next">Здесь очень важно понимать процесс от начала и до конца:</h4>
+    <ul>
+      <li class="next">инициируем миграцию, когда пользователь заходит в приложение;</li>
+      <li class="next">загружаем с сервера миграции, которые еще не были применены;</li>
+      <li class="next">применяем в нужном порядке;</li>
+      <li class="next">самое сложное: а что, если в процессе возникла ошибка?
+        <ul>
+          <li class="next">бекапим данные перед миграцией, если важно их не потерять;</li>
+          <li class="next">отправляем на сервер нотификацию об ошибке миграции;</li>
+          <li class="next">возможно даже блокируем работу приложения до выяснения;</li>
+          <li class="next">сообщаем пользователю, если нужно.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide shout">
+  <div>
+    <h2>
+      Итак
+    </h2>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h2>Заключение:</h2>
+    <ol>
+      <li class="next" style="font-size: 22px;">большая часть проблем решается без специализированных инструментов;</li>
+      <li class="next" style="font-size: 22px;">даже если вы не написали ни строчки JavaScript, вы могли юзать cookies;</li>
+      <li class="next" style="font-size: 22px;">помните о том, что на клиенте есть место миграциям;</li>
+      <li class="next" style="font-size: 22px;">не забывайте после рефакторингов оценивать, что нужно мигрировать;</li>
+      <li class="next" style="font-size: 22px;">учитывайте, что ошибки в процессе миграций вне вашего ручного контроля.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="slide shout">
+  <div>
+    <h2>
+      Скучно!
+    </h2>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h2 style="font-size: 40px;">На самом деле, это все про удобный DSL для JSON:</h2>
+    <h3>Мощный ЭПиАй :)</h3>
+    <pre>
+      <code>add('path.to.*.some.key', value/valueFunc());</code>
+      <code>change('path.to.*.some.key', value/valueFunc(oldValue));</code>
+      <code>rename('path.to.*.some.key', key/keyFunc(oldKey));</code>
+      <code>remove('path.to.*.some.key');</code>
+      <code>...</code>
+    </pre>
+    <p>* - любой элемент массива или любой ключ объекта.</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <h2>Похожие инструменты:</h2>
+    <ul>
+      <li><a href="https://github.com/pasaran/yate">YATE</a> - аналог XSLT и XPath для JSON;</li>
+      <li><a href="https://github.com/afloyd/mongo-migrate">mongo-migrate</a> - очень похоже, но для MongoDB.</li>
+    </ul>
+    <p>Спасибо слушателям за наводки!</p>
+  </div>
+</section>
+
+<section class="slide">
+  <div>
+    <header>
+      <h2>Как не проSPAть миграцию на клиенте?</h2>
+    </header>
+    <p>Миша Башкиров, AT Consulting</p>
+    <ul>
+      <li><a href="http://bashmish.com">bashmish.com</a></li>
+      <li><a href="mailto:bashmish@gmail.com">bashmish@gmail.com</a></li>
+    </ul>
+    <p>Презентация: <a href="http://bashmish.com/pres/spa-migrations/">bashmish.com/pres/spa-migrations/</a></p>
+  </div>
+</section>
+
+<p class="badge"><a href="https://github.com/shower/shower">Powered by Shower</a></p>
+
+<div class="progress"><div></div></div>
+
+<script src="./scripts/shower.min.js"></script>
+</body>
+</html>
